@@ -44,7 +44,7 @@ func setupEndpoint(path string, params map[string]string) *url.URL {
 		base_url.Scheme = "http"
 	}
 
-	endpoint, _ := base_url.Parse("/2.0/" + path)
+	endpoint, _ := base_url.Parse("/2.2/" + path)
 
 	query := endpoint.Query()
 	for key, value := range params {

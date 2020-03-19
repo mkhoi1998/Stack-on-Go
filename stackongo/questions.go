@@ -165,6 +165,17 @@ func (session Session) Search(query string, params map[string]string) (output *Q
 	return
 }
 
+// Advanced search queries the post titles with the given query and returns the matching questions. You can used params to set other criteria such as `tagged`
+func (session Session) AdvancedSearch(query []string, params map[string]string) (output *Questions, error error) {
+	request_path := "search/advanced"
+	// set query as a param
+	params["q"] = strings.Join(query, "+")
+
+	output = new(Questions)
+	error = session.get(request_path, params, output)
+	return
+}
+
 // Similar returns questions similar to the given query
 func (session Session) Similar(query string, params map[string]string) (output *Questions, error error) {
 	request_path := "similar"
