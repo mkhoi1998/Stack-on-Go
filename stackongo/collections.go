@@ -161,7 +161,7 @@ type NetworkUsers struct {
 }
 
 type Posts struct {
-	Items []Post
+	Items         []Post
 	Error_id      int
 	Error_name    string
 	Error_message string
@@ -177,7 +177,7 @@ type Posts struct {
 }
 
 type Privileges struct {
-	Items []Privilege
+	Items         []Privilege
 	Error_id      int
 	Error_name    string
 	Error_message string
@@ -193,7 +193,7 @@ type Privileges struct {
 }
 
 type Questions struct {
-	Items []Question
+	Items         []Question
 	Error_id      int
 	Error_name    string
 	Error_message string
@@ -209,7 +209,7 @@ type Questions struct {
 }
 
 type QuestionTimelines struct {
-	Items []QuestionTimeline
+	Items         []QuestionTimeline
 	Error_id      int
 	Error_name    string
 	Error_message string
@@ -225,10 +225,10 @@ type QuestionTimelines struct {
 }
 
 type Reputations struct {
-	Items []Reputation
-	Error_id      int
-	Error_name    string
-	Error_message string
+	Items           []Reputation
+	Error_id        int
+	Error_name      string
+	Error_message   string
 	Backoff         int
 	Has_more        bool
 	Page            int
@@ -240,7 +240,7 @@ type Reputations struct {
 }
 
 type Revisions struct {
-	Items []Revision
+	Items         []Revision
 	Error_id      int
 	Error_name    string
 	Error_message string
@@ -256,7 +256,7 @@ type Revisions struct {
 }
 
 type Sites struct {
-	Items []Site
+	Items         []Site
 	Error_id      int
 	Error_name    string
 	Error_message string
@@ -272,10 +272,10 @@ type Sites struct {
 }
 
 type SuggestedEdits struct {
-	Items []SuggestedEdit
-	Error_id      int
-	Error_name    string
-	Error_message string
+	Items           []SuggestedEdit
+	Error_id        int
+	Error_name      string
+	Error_message   string
 	Backoff         int
 	Has_more        bool
 	Page            int
@@ -287,10 +287,10 @@ type SuggestedEdits struct {
 }
 
 type Tags struct {
-	Items []Tag
-	Error_id      int
-	Error_name    string
-	Error_message string
+	Items           []Tag
+	Error_id        int
+	Error_name      string
+	Error_message   string
 	Backoff         int
 	Has_more        bool
 	Page            int
@@ -302,10 +302,10 @@ type Tags struct {
 }
 
 type TagScores struct {
-	Items []TagScore
-	Error_id      int
-	Error_name    string
-	Error_message string
+	Items           []TagScore
+	Error_id        int
+	Error_name      string
+	Error_message   string
 	Backoff         int
 	Has_more        bool
 	Page            int
@@ -317,7 +317,7 @@ type TagScores struct {
 }
 
 type TagSynonyms struct {
-	Items []TagSynonym
+	Items         []TagSynonym
 	Error_id      int
 	Error_name    string
 	Error_message string
@@ -333,10 +333,10 @@ type TagSynonyms struct {
 }
 
 type TagWikis struct {
-	Items []TagWiki
-	Error_id      int
-	Error_name    string
-	Error_message string
+	Items           []TagWiki
+	Error_id        int
+	Error_name      string
+	Error_message   string
 	Backoff         int
 	Has_more        bool
 	Page            int
@@ -348,10 +348,10 @@ type TagWikis struct {
 }
 
 type TopTags struct {
-	Items []TopTag
-	Error_id      int
-	Error_name    string
-	Error_message string
+	Items           []TopTag
+	Error_id        int
+	Error_name      string
+	Error_message   string
 	Backoff         int
 	Has_more        bool
 	Page            int
@@ -363,10 +363,10 @@ type TopTags struct {
 }
 
 type Users struct {
-	Items []User
-	Error_id      int
-	Error_name    string
-	Error_message string
+	Items           []User
+	Error_id        int
+	Error_name      string
+	Error_message   string
 	Backoff         int
 	Has_more        bool
 	Page            int
@@ -378,10 +378,10 @@ type Users struct {
 }
 
 type UserTimelines struct {
-	Items []UserTimeline
-	Error_id      int
-	Error_name    string
-	Error_message string
+	Items           []UserTimeline
+	Error_id        int
+	Error_name      string
+	Error_message   string
 	Backoff         int
 	Has_more        bool
 	Page            int
@@ -390,4 +390,38 @@ type UserTimelines struct {
 	Quota_remaining int
 	Total           int
 	Type            string
+}
+
+type Excerpts struct {
+	Items         []Excerpt
+	Error_id      int
+	Error_name    string
+	Error_message string
+
+	Backoff         int
+	Has_more        bool
+	Page            int
+	Page_size       int
+	Quota_max       int
+	Quota_remaining int
+	Total           int
+	Type            string
+}
+
+type Excerpt struct {
+	Tags              []string `json:"tags"`
+	QuestionScore     int      `json:"question_score"`
+	IsAccepted        bool     `json:"is_accepted"`
+	AnswerID          int      `json:"answer_id,omitempty"`
+	IsAnswered        bool     `json:"is_answered"`
+	QuestionID        int      `json:"question_id"`
+	ItemType          string   `json:"item_type"`
+	Score             int      `json:"score"`
+	LastActivityDate  int      `json:"last_activity_date"`
+	CreationDate      int      `json:"creation_date"`
+	Body              string   `json:"body"`
+	Excerpt           string   `json:"excerpt"`
+	Title             string   `json:"title"`
+	HasAcceptedAnswer bool     `json:"has_accepted_answer,omitempty"`
+	AnswerCount       int      `json:"answer_count,omitempty"`
 }

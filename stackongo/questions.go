@@ -165,13 +165,24 @@ func (session Session) Search(query string, params map[string]string) (output *Q
 	return
 }
 
-// Advanced search queries the post titles with the given query and returns the matching questions. You can used params to set other criteria such as `tagged`
+// AdvancedSearch queries the post titles with the given query and returns the matching questions. You can used params to set other criteria such as `tagged`
 func (session Session) AdvancedSearch(query []string, params map[string]string) (output *Questions, error error) {
 	request_path := "search/advanced"
 	// set query as a param
 	params["q"] = strings.Join(query, "+")
 
 	output = new(Questions)
+	error = session.get(request_path, params, output)
+	return
+}
+
+// ExcerptSearch search queries the post titles with the given query and returns the matching item on the site. You can used params to set other criteria such as `tagged`
+func (session Session) ExcerptSearch(query []string, params map[string]string) (output *Excerpts, error error) {
+	request_path := "search/excerpts"
+	// set query as a param
+	params["q"] = strings.Join(query, "+")
+
+	output = new(Excerpts)
 	error = session.get(request_path, params, output)
 	return
 }
