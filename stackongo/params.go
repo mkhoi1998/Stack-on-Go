@@ -70,11 +70,11 @@ func (p Params) AddVectorized(key string, values []string) {
 }
 
 // Key sets the key for querying
-func (p Params) Key(num int) {
-	p.Add("key", num)
+func (p Params) Key(key string) {
+	p.Add("key", key)
 }
 
 // Filter sets the filter code for querying
-func (p Params) Filter(num int) {
-	p.Add("filter", num)
+func (p Params) Filter(code string) {
+	p.Add("filter", code)
 }
